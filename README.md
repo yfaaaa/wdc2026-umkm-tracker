@@ -1,8 +1,9 @@
-# 🧾 Memori Baik
+# 🧾 UMKM Tracker
 > **Turn Paper Receipts into Financial Clarity in Seconds**
 
 ![Next.js](https://img.shields.io/badge/Next.js-14%2B-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Type--Safe-blue?style=for-the-badge&logo=typescript)
+![Team](https://img.shields.io/badge/Team-Memori%20Baik'-purple?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Version-v1.0.0%20(Production%20Ready)-success?style=for-the-badge)
 
 > *"73% pelaku UMKM kehilangan potensi profit bukan karena kurang penjualan, melainkan karena transaksi kecil yang luput dicatat."*
@@ -11,16 +12,17 @@
 
 ## 📌 Ringkasan Produk
 
-**Memori Baik** adalah platform pengelolaan keuangan modern yang memangkas proses pencatatan transaksi manual melalui integrasi kecerdasan buatan (**AI OCR Scanner**). 
+**UMKM Tracker** adalah platform pengelolaan keuangan modern yang dikembangkan oleh tim **Memori Baik'** untuk memangkas proses pencatatan transaksi manual melalui integrasi kecerdasan buatan (**AI OCR Scanner**). 
 
 Aplikasi ini mengubah tumpukan struk belanja fisik menjadi data keuangan digital terstruktur secara otomatis. Tanpa *input* manual satu per satu, tanpa baris transaksi yang terlewat, dan langsung tersinkronisasi dengan pembukuan utama (*General Ledger*).
 
 * **Target Pengguna:** Pelaku UMKM, Owner Bisnis Retail/F&B, & Pengelola Keuangan Mandiri.
 * **Fokus Solusi:** Automated Financial Accounting & AI Receipt Scanner (OCR).
+* **Tim Pengembang:** Memori Baik'
 
 ---
 
-## 💡 Mengapa Memori Baik?
+## 💡 Mengapa UMKM Tracker?
 
 * **⚡ Zero Manual Typing:** Ambil foto struk, unggah, dan biarkan AI mengekstrak nominal, tanggal, daftar item, hingga nama toko secara presisi.
 * **🔗 Auto-Sync Pembukuan:** Sekali klik (*One-Click Sync*) untuk memasukkan hasil *scan* langsung ke laporan kas & arus keuangan toko Anda.
