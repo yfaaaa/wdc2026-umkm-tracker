@@ -6,12 +6,25 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8fafc' }}>
-      {/* Sidebar Kiri */}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        minHeight: '100vh',
+        width: '100%',
+        backgroundColor: '#f8fafc',
+        color: '#0f172a',
+      }}
+    >
       <Sidebar />
-
-      {/* Konten Utama Kanan */}
-      <main style={{ flex: 1, padding: '32px', color: '#0f172a', overflowY: 'auto' }}>
+      <main
+        style={{
+          flex: 1,
+          padding: '32px',
+          overflowY: 'auto',
+          minWidth: 0,
+        }}
+      >
         {children}
       </main>
     </div>
