@@ -1,46 +1,73 @@
-================================================================================
-                    PRODUCT DOCUMENTATION - MEMORI BAIK
-================================================================================
-Tim Developer  : Memori Baik
-Versi Aplikasi : v1.0.0 (Production Ready)
-Fokus Solusi   : Automated Financial Accounting & AI Receipt Scanner (OCR)
-Target Pengguna: Pelaku UMKM, Owner Bisnis Retail/F&B, & Pengelola Keuangan Mandiri
+# 🧾 Memori Baik
+> **Turn Paper Receipts into Financial Clarity in Seconds**
 
---------------------------------------------------------------------------------
-1. RINGKASAN PRODUK
---------------------------------------------------------------------------------
-Memori Baik adalah platform pengelolaan keuangan modern yang memangkas proses 
-pencatatan transaksi manual melalui integrasi kecerdasan buatan (AI OCR Scanner). 
-Aplikasi ini memungkinkan pengguna mengunggah foto struk/nota fisik, lalu secara 
-otomatis mengonversinya menjadi data transaksi digital yang tersinkronisasi 
-dengan pembukuan utama (General Ledger).
+![Next.js](https://img.shields.io/badge/Next.js-14%2B-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-Type--Safe-blue?style=for-the-badge&logo=typescript)
+![Status](https://img.shields.io/badge/Version-v1.0.0%20(Production%20Ready)-success?style=for-the-badge)
 
---------------------------------------------------------------------------------
-2. FITUR UTAMA & KAPABILITAS
---------------------------------------------------------------------------------
-[+] Instant AI OCR Scanner:
-    - Mendukung upload file JPG, PNG, WEBP, hingga PDF (maks. 5MB).
-    - Ekstraksi otomatis nama merchant, tanggal transaksi, daftar item, dan grand total.
-    - Tingkat akurasi ekstraksi tinggi dengan indikator Confidence Level.
+> *"73% pelaku UMKM kehilangan potensi profit bukan karena kurang penjualan, melainkan karena transaksi kecil yang luput dicatat."*
 
-[+] Automated Ledger Sync:
-    - Penggabungan satu klik (One-Click Sync) dari data struk ter-scan langsung ke 
-      modul pembukuan transaksi pengeluaran.
-    - Pencegahan duplikasi data melalui status penandaan (isSynced).
+---
 
-[+] Dashboard & Transaction Management:
-    - Pencarian cepat (real-time filter) berdasarkan nama toko atau nama file.
-    - Modal review interaktif untuk verifikasi detail item sebelum pembukuan.
-    - Pengelolaan histori struk digital (Preview, Sync, & Delete).
+## 📌 Ringkasan Produk
 
---------------------------------------------------------------------------------
-3. ARSITEKTUR TEKNIS & STACK
---------------------------------------------------------------------------------
-- Framework          : Next.js (App Router)
-- Language           : TypeScript (Type-Safe Architecture)
-- Styling            : Custom CSS-in-JS + Glassmorphism UI
-- State & Storage    : React Hooks (useState, useEffect, useRef) + LocalStorage Sync
-- File Processing    : Client-side Preview & Mock OCR Engine Pipeline
-================================================================================
+**Memori Baik** adalah platform pengelolaan keuangan modern yang memangkas proses pencatatan transaksi manual melalui integrasi kecerdasan buatan (**AI OCR Scanner**). 
 
-🧾 Memori Baik — Turn Paper Receipts into Financial Clarity in Seconds"73% pelaku UMKM kehilangan potensi profit bukan karena kurang penjualan, melainkan karena transaksi kecil yang luput dicatat."Memori Baik hadir sebagai solusi pembukuan pintar berbasis AI OCR yang mengubah tumpukan struk belanja fisik menjadi data keuangan terstruktur secara otomatis. Tanpa input manual satu per satu, tanpa baris transaksi yang terlewat.💡 Mengapa Memori Baik?⚡ Zero Manual Typing: Ambil foto struk, unggah, dan biarkan AI mengekstrak nominal, tanggal, hingga nama toko secara presisi.🔗 Auto-Sync Pembukuan: Sekali klik untuk memasukkan hasil scan langsung ke laporan kas & arus keuangan toko Anda.🛡️ Validasi Data Transparan: Dilengkapi indikator Confidence Score dan modal peninjauan ulang (review) untuk memastikan akurasi data 100%.💻 Modern Glassmorphism UI: Antarmuka responsif, bersih, dan intuitif yang dirancang untuk kenyamanan operasional harian.🛠️ Teknologi & StackLayerTeknologiFrontend FrameworkNext.js (App Router)LanguageTypeScriptUI/UX DesignGlassmorphism Dashboard StylingOCR Engine PipelineAI Text Extraction EngineData PersistenceSynchronized Browser LocalStorage
+Aplikasi ini mengubah tumpukan struk belanja fisik menjadi data keuangan digital terstruktur secara otomatis. Tanpa *input* manual satu per satu, tanpa baris transaksi yang terlewat, dan langsung tersinkronisasi dengan pembukuan utama (*General Ledger*).
+
+* **Target Pengguna:** Pelaku UMKM, Owner Bisnis Retail/F&B, & Pengelola Keuangan Mandiri.
+* **Fokus Solusi:** Automated Financial Accounting & AI Receipt Scanner (OCR).
+
+---
+
+## 💡 Mengapa Memori Baik?
+
+* **⚡ Zero Manual Typing:** Ambil foto struk, unggah, dan biarkan AI mengekstrak nominal, tanggal, daftar item, hingga nama toko secara presisi.
+* **🔗 Auto-Sync Pembukuan:** Sekali klik (*One-Click Sync*) untuk memasukkan hasil *scan* langsung ke laporan kas & arus keuangan toko Anda.
+* **🛡️ Validasi Data Transparan:** Dilengkapi indikator *Confidence Score* dan modal peninjauan ulang (*review*) untuk memastikan akurasi data 100%.
+* **💻 Modern Glassmorphism UI:** Antarmuka responsif, bersih, dan intuitif yang dirancang untuk kenyamanan operasional harian.
+
+---
+
+## 🚀 Fitur Utama & Kapabilitas
+
+### 1. Instant AI OCR Scanner
+* **Format Dukungan:** Upload file JPG, PNG, WEBP, hingga PDF (Maksimal 5MB).
+* **Ekstraksi Presisi:** Deteksi otomatis nama merchant, tanggal transaksi, daftar item, dan grand total.
+* **Confidence Level:** Transparansi akurasi ekstraksi AI secara *real-time*.
+
+### 2. Automated Ledger Sync
+* **One-Click Sync:** Integrasi instan dari data struk ter-scan langsung ke modul pembukuan pengeluaran.
+* **Anti-Duplikasi:** Sistem pencegahan pencatatan ganda dengan status penandaan kustom (`isSynced`).
+
+### 3. Dashboard & Transaction Management
+* **Real-time Filter:** Pencarian cepat berdasarkan nama toko (*merchant*) atau nama file.
+* **Interactive Review Modal:** Verifikasi detail item & nominal sebelum masuk ke buku besar.
+* **Digital Receipt Archiving:** Pengelolaan histori struk (*Preview, Sync, & Delete*).
+
+---
+
+## 🛠️ Arsitektur Teknis & Stack
+
+| Layer | Teknologi & Deskripsi |
+| :--- | :--- |
+| **Frontend Framework** | Next.js (App Router) |
+| **Language** | TypeScript (*Type-Safe Architecture*) |
+| **UI/UX Design** | Custom CSS-in-JS + Glassmorphic Dashboard Styling |
+| **State & Storage** | React Hooks (`useState`, `useEffect`, `useRef`) + LocalStorage Sync |
+| **OCR Pipeline** | Client-side Preview & AI Text Extraction Engine Pipeline |
+
+---
+
+## 📂 Struktur Direktori Proyek
+
+```text
+wdc2026-umkm-tracker/
+├── app/                # Next.js App Router (Pages & Layout)
+├── components/         # Reusable UI Components
+├── features/           # Feature-specific Modules
+├── hooks/              # Custom React Hooks
+├── lib/                # Helper Libraries & Configs
+├── public/             # Static Assets
+├── types/              # TypeScript Interfaces & Definitions
+└── utils/              # Utility Functions
