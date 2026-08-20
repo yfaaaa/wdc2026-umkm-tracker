@@ -1,187 +1,154 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 
 interface Product {
-    id: string;
+    id: number;
     name: string;
     category: string;
     price: number;
+    image: string;
     stock: number;
-    description: string;
-    whatsappNumber: string;
 }
 
-// Dummy data produk aman
-const DUMMY_PRODUCTS: Product[] = [
-    {
-        id: 'prod-1',
-        name: 'Kopi Susu Gula Aren 250ml',
-        category: 'Minuman',
-        price: 18000,
-        stock: 25,
-        description: 'Kopi kenangan racikan spesial dengan gula aren murni.',
-        whatsappNumber: '6281234567890',
-    },
-    {
-        id: 'prod-2',
-        name: 'Keripik Singkong Balado Premium 100g',
-        category: 'Makanan',
-        price: 15000,
-        stock: 50,
-        description: 'Renyah, gurih, dan pedas manis pas untuk cemilan.',
-        whatsappNumber: '6281234567890',
-    },
-    {
-        id: 'prod-3',
-        name: 'Kaos Polos Cotton Combed 30s',
-        category: 'Pakaian',
-        price: 45000,
-        stock: 12,
-        description: 'Bahan adem, nyaman dipakai sehari-hari.',
-        whatsappNumber: '6281234567890',
-    },
+const INITIAL_PRODUCTS: Product[] = [
+    { id: 1, name: 'Kopi Susu Gula Aren 250ml', category: 'Minuman', price: 18000, image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80', stock: 45 },
+    { id: 2, name: 'Roti Bakar Cokelat Keju', category: 'Makanan', price: 22000, image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80', stock: 12 },
+    { id: 3, name: 'Matcha Latte Premium', category: 'Minuman', price: 24000, image: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80', stock: 30 },
+    { id: 4, name: 'Keripik Singkong Balado 200g', category: 'Camilan', price: 15000, image: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=600&q=80', stock: 80 },
 ];
 
 export default function CatalogPage() {
     const [search, setSearch] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('ALL');
+    const [selectedCategory, setSelectedCategory] = useState('Semua');
 
-    // Filter Produk
-    const filteredProducts = DUMMY_PRODUCTS.filter((product) => {
-        const matchSearch = product.name.toLowerCase().includes(search.toLowerCase());
-        const matchCategory = selectedCategory === 'ALL' || product.category === selectedCategory;
-        return matchSearch && matchCategory;
+    const categories = ['Semua', 'Makanan', 'Minuman', 'Camilan'];
+
+    const filteredProducts = INITIAL_PRODUCTS.filter((p) => {
+        const matchSearch = p.name.toLowerCase().includes(search.toLowerCase());
+        const matchCat = selectedCategory === 'Semua' || p.category === selectedCategory;
+        return matchSearch && matchCat;
     });
 
-    const categories = ['ALL', 'Makanan', 'Minuman', 'Pakaian'];
-
-    const handleOrderWhatsApp = (product: Product) => {
-        const message = `Halo, saya ingin membeli *${product.name}* harga Rp ${product.price.toLocaleString('id-ID')}. Apakah stok masih ada?`;
-        const waUrl = `https://wa.me/${product.whatsappNumber}?text=${encodeURIComponent(message)}`;
-        window.open(waUrl, '_blank');
-    };
-
     return (
-        <div>
-            {/* Banner / Hero Section */}
-            <div style={{ backgroundColor: '#0284c7', color: '#fff', borderRadius: '12px', padding: '24px', marginBottom: '24px' }}>
-                <h2 style={{ margin: '0 0 8px 0', fontSize: '24px' }}>Selamat Datang di Katalog Kami 👋</h2>
-                <p style={{ margin: 0, opacity: 0.9 }}>Temukan produk-produk terbaik dengan harga terjangkau. Pesan langsung via WhatsApp!</p>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '40px 24px 80px' }}>
+            <style>{`
+        .product-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          overflow: hidden;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+          transform: translateY(-6px);
+          border-color: #38bdf8;
+          box-shadow: 0 16px 32px -8px rgba(2, 132, 199, 0.15);
+        }
+        .cat-badge {
+          padding: 8px 18px;
+          border-radius: 30px;
+          font-size: 13px;
+          font-weight: 600;
+          cursor: pointer;
+          border: 1px solid #e2e8f0;
+          background-color: #ffffff;
+          color: #64748b;
+          transition: all 0.2s ease;
+        }
+        .cat-badge:hover, .cat-badge.active {
+          background-color: #0284c7;
+          color: #ffffff;
+          border-color: #0284c7;
+          box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+      `}</style>
+
+            {/* Header Katalog */}
+            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: '800', color: '#0284c7', backgroundColor: '#e0f2fe', padding: '6px 14px', borderRadius: '20px' }}>
+                    ETALASE DIGITAL UMKM
+                </span>
+                <h1 style={{ fontSize: '36px', fontWeight: '900', color: '#0f172a', marginTop: '12px', letterSpacing: '-0.5px' }}>
+                    Katalog Produk Usaha
+                </h1>
+                <p style={{ fontSize: '15px', color: '#64748b', maxWidth: '500px', margin: '8px auto 0' }}>
+                    Temukan produk unggulan berkualitas siap pesan langsung melalui integrasi WhatsApp.
+                </p>
             </div>
 
             {/* Filter & Search Bar */}
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '24px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px', alignItems: 'center' }}>
                 <input
                     type="text"
-                    placeholder="Cari produk..."
+                    placeholder="🔍 Cari nama produk..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    style={{ flex: 1, minWidth: '200px', padding: '10px 14px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '14px' }}
+                    style={{
+                        width: '100%',
+                        maxWidth: '480px',
+                        padding: '12px 20px',
+                        borderRadius: '12px',
+                        border: '1px solid #cbd5e1',
+                        fontSize: '14px',
+                        outline: 'none',
+                        backgroundColor: '#ffffff',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                    }}
                 />
 
-                <div style={{ display: 'flex', gap: '6px' }}>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
-                            style={{
-                                padding: '8px 14px',
-                                borderRadius: '6px',
-                                border: 'none',
-                                backgroundColor: selectedCategory === cat ? '#0f172a' : '#e2e8f0',
-                                color: selectedCategory === cat ? '#fff' : '#334155',
-                                cursor: 'pointer',
-                                fontSize: '13px',
-                                fontWeight: '500',
-                            }}
+                            className={`cat-badge ${selectedCategory === cat ? 'active' : ''}`}
                         >
-                            {cat === 'ALL' ? 'Semua' : cat}
+                            {cat}
                         </button>
                     ))}
                 </div>
             </div>
 
-            {/* Grid Produk */}
-            {filteredProducts.length === 0 ? (
-                <div style={{ textAlign: 'center', padding: '40px 0', color: '#64748b' }}>
-                    Produk tidak ditemukan.
-                </div>
-            ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '20px' }}>
-                    {filteredProducts.map((product) => (
-                        <div
-                            key={product.id}
-                            style={{
-                                backgroundColor: '#ffffff',
-                                borderRadius: '10px',
-                                border: '1px solid #e2e8f0',
-                                padding: '16px',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'space-between',
-                                boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-                            }}
-                        >
-                            <div>
-                                <div style={{ height: '140px', backgroundColor: '#f1f5f9', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '36px', marginBottom: '12px' }}>
-                                    📦
-                                </div>
-                                <span style={{ fontSize: '12px', color: '#0284c7', backgroundColor: '#e0f2fe', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
-                                    {product.category}
-                                </span>
-                                <h3 style={{ margin: '8px 0 4px 0', fontSize: '16px', color: '#0f172a' }}>{product.name}</h3>
-                                <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#64748b', lineHeight: '1.4' }}>{product.description}</p>
-                            </div>
+            {/* Product Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '28px' }}>
+                {filteredProducts.map((product) => (
+                    <div key={product.id} className="product-card">
+                        <div style={{ width: '100%', height: '200px', overflow: 'hidden', position: 'relative' }}>
+                            <img
+                                src={product.image}
+                                alt={product.name}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
+                            <span style={{ position: 'absolute', top: '12px', right: '12px', backgroundColor: 'rgba(255,255,255,0.9)', padding: '4px 10px', borderRadius: '20px', fontSize: '11px', fontWeight: '700', color: '#0284c7' }}>
+                                {product.category}
+                            </span>
+                        </div>
 
-                            <div>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                                    <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#16a34a' }}>
+                        <div style={{ padding: '20px' }}>
+                            <h3 style={{ fontSize: '16px', fontWeight: '700', color: '#0f172a', marginBottom: '8px' }}>
+                                {product.name}
+                            </h3>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px' }}>
+                                <div>
+                                    <span style={{ fontSize: '11px', color: '#94a3b8', display: 'block' }}>Harga</span>
+                                    <span style={{ fontSize: '18px', fontWeight: '800', color: '#16a34a' }}>
                                         Rp {product.price.toLocaleString('id-ID')}
                                     </span>
-                                    <span style={{ fontSize: '12px', color: '#64748b' }}>Stok: {product.stock}</span>
                                 </div>
-
-                                <div style={{ display: 'flex', gap: '8px' }}>
-                                    <Link
-                                        href={`/catalog/${product.id}`}
-                                        style={{
-                                            flex: 1,
-                                            textAlign: 'center',
-                                            padding: '8px',
-                                            borderRadius: '6px',
-                                            border: '1px solid #cbd5e1',
-                                            color: '#334155',
-                                            textDecoration: 'none',
-                                            fontSize: '13px',
-                                            fontWeight: '500',
-                                        }}
-                                    >
-                                        Detail
-                                    </Link>
-                                    <button
-                                        onClick={() => handleOrderWhatsApp(product)}
-                                        style={{
-                                            flex: 1,
-                                            padding: '8px',
-                                            borderRadius: '6px',
-                                            border: 'none',
-                                            backgroundColor: '#16a34a',
-                                            color: '#fff',
-                                            cursor: 'pointer',
-                                            fontSize: '13px',
-                                            fontWeight: 'bold',
-                                        }}
-                                    >
-                                        💬 Beli (WA)
-                                    </button>
-                                </div>
+                                <a
+                                    href={`https://wa.me/?text=Halo,%20saya%20ingin%20pesan%20${encodeURIComponent(product.name)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ backgroundColor: '#25D366', color: '#ffffff', padding: '10px 16px', borderRadius: '10px', fontSize: '13px', fontWeight: '700', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                                >
+                                    💬 Pesan
+                                </a>
                             </div>
                         </div>
-                    ))}
-                </div>
-            )}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
