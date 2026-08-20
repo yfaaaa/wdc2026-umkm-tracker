@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧾 UMKM Tracker
+> **Turn Paper Receipts into Financial Clarity in Seconds**
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-14%2B-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-Type--Safe-blue?style=for-the-badge&logo=typescript)
+![Team](https://img.shields.io/badge/Team-Memori%20Baik'-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/Version-v1.0.0%20(Production%20Ready)-success?style=for-the-badge)
 
-First, run the development server:
+> *"73% pelaku UMKM kehilangan potensi profit bukan karena kurang penjualan, melainkan karena transaksi kecil yang luput dicatat."*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Ringkasan Produk
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**UMKM Tracker** adalah platform pengelolaan keuangan modern yang dikembangkan oleh tim **Memori Baik'** untuk memangkas proses pencatatan transaksi manual melalui integrasi kecerdasan buatan (**AI OCR Scanner**). 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Aplikasi ini mengubah tumpukan struk belanja fisik menjadi data keuangan digital terstruktur secara otomatis. Tanpa *input* manual satu per satu, tanpa baris transaksi yang terlewat, dan langsung tersinkronisasi dengan pembukuan utama (*General Ledger*).
 
-## Learn More
+* **Target Pengguna:** Pelaku UMKM, Owner Bisnis Retail/F&B, & Pengelola Keuangan Mandiri.
+* **Fokus Solusi:** Automated Financial Accounting & AI Receipt Scanner (OCR).
+* **Tim Pengembang:** Memori Baik'
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💡 Mengapa UMKM Tracker?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **⚡ Zero Manual Typing:** Ambil foto struk, unggah, dan biarkan AI mengekstrak nominal, tanggal, daftar item, hingga nama toko secara presisi.
+* **🔗 Auto-Sync Pembukuan:** Sekali klik (*One-Click Sync*) untuk memasukkan hasil *scan* langsung ke laporan kas & arus keuangan toko Anda.
+* **🛡️ Validasi Data Transparan:** Dilengkapi indikator *Confidence Score* dan modal peninjauan ulang (*review*) untuk memastikan akurasi data 100%.
+* **💻 Modern Glassmorphism UI:** Antarmuka responsif, bersih, dan intuitif yang dirancang untuk kenyamanan operasional harian.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Fitur Utama & Kapabilitas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. Instant AI OCR Scanner
+* **Format Dukungan:** Upload file JPG, PNG, WEBP, hingga PDF (Maksimal 5MB).
+* **Ekstraksi Presisi:** Deteksi otomatis nama merchant, tanggal transaksi, daftar item, dan grand total.
+* **Confidence Level:** Transparansi akurasi ekstraksi AI secara *real-time*.
+
+### 2. Automated Ledger Sync
+* **One-Click Sync:** Integrasi instan dari data struk ter-scan langsung ke modul pembukuan pengeluaran.
+* **Anti-Duplikasi:** Sistem pencegahan pencatatan ganda dengan status penandaan kustom (`isSynced`).
+
+### 3. Dashboard & Transaction Management
+* **Real-time Filter:** Pencarian cepat berdasarkan nama toko (*merchant*) atau nama file.
+* **Interactive Review Modal:** Verifikasi detail item & nominal sebelum masuk ke buku besar.
+* **Digital Receipt Archiving:** Pengelolaan histori struk (*Preview, Sync, & Delete*).
+
+---
+
+## 🛠️ Arsitektur Teknis & Stack
+
+| Layer | Teknologi & Deskripsi |
+| :--- | :--- |
+| **Frontend Framework** | Next.js (App Router) |
+| **Language** | TypeScript (*Type-Safe Architecture*) |
+| **UI/UX Design** | Custom CSS-in-JS + Glassmorphic Dashboard Styling |
+| **State & Storage** | React Hooks (`useState`, `useEffect`, `useRef`) + LocalStorage Sync |
+| **OCR Pipeline** | Client-side Preview & AI Text Extraction Engine Pipeline |
+
+---
+
+## 📂 Struktur Direktori Proyek
+
+```text
+wdc2026-umkm-tracker/
+├── app/                # Next.js App Router (Pages & Layout)
+├── components/         # Reusable UI Components
+├── features/           # Feature-specific Modules
+├── hooks/              # Custom React Hooks
+├── lib/                # Helper Libraries & Configs
+├── public/             # Static Assets
+├── types/              # TypeScript Interfaces & Definitions
+└── utils/              # Utility Functions
